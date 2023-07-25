@@ -26,6 +26,11 @@
     ]
   }*/
 
-  function consulta(){
+  
+   fetch("./info.json").then((value)=>{
+        return value.json()
+    }).then((valueJSON)=>{
+        console.log(valueJSON)
+        
+    })
     
-  }
