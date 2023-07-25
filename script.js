@@ -54,6 +54,9 @@
     
     function crearPokemon(pokemons){
         for(let pokemon of pokemons){
-            console.log(pokemon.name)
+            if(pokemon.name.includes("saur")){
+              console.log(`${pokemon.id} The pokemon ${pokemon.number} names ${pokemon.name}`)
+            }
         }
     }
+    
