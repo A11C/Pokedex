@@ -10,6 +10,19 @@
 </head>
 
 <body>
+
+    <nav class="navbar sticky-top bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <img src="https://icons-for-free.com/iconfiles/png/48/go+play+pokedex+pokemon+tool+icon-1320186974488705447.png"
+                alt="Logo" width="48" height="48" class="d-inline-block align-text-top">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Escribe el nombre del Pokemon!" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
+
+
     <!-- div para mostrar los pokemones -->
     <div class="row mt-6" id="card">
     </div>
@@ -38,12 +51,12 @@
     -->
 
 
-    <div class="modal fade " tabindex="-1" id="modalInfo"
-        data-bs-backdrop="static">
+    <div class="modal fade " tabindex="-1" id="modalInfo" data-bs-backdrop="static">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title text-success" id="modalNumberName">002 <span class="strong"> Ivysaur</span> </h3>
+                    <h3 class="modal-title text-success" id="modalNumberName">002 <span class="strong"> Ivysaur</span>
+                    </h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

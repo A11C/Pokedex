@@ -53,6 +53,7 @@ class Pokemon{
 }*/
 
 function createCards(pokemons) {
+  let i=0
   document.getElementById("card").innerHTML = "";
   for (let pokemon of pokemons) {
     document.getElementById("card").innerHTML += `
@@ -62,29 +63,31 @@ function createCards(pokemons) {
       <img src="${pokemon.ThumbnailImage}"width="100%" height="100px"/>
       <p class="mt-2">${pokemon.type}</p>
       <p class="mt-2">${pokemon.id}</p>
-      <button type="button id="${pokemon.id}" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal${pokemon.id}>info</button>
-      
-      
+      <button type="button" id="${pokemon.id}" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal${pokemon.id}">info</button>
+      </div>
+      </div>
       <div class="modal fade" id="exampleModal${pokemon.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Pokemon name : ${pokemon.name}</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Pokemon name : ${pokemon.name}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
       `;
-    /*if (pokemon.name.includes("saur")) {
-      console.log(`${pokemon.id} The pokemon ${pokemon.number} names ${pokemon.name}`)
-    }*/
+      
+      i++
+      if(i==15){
+        return
+      }
   }
 }
