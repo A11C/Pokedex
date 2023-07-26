@@ -131,20 +131,14 @@ function createCards(pokemons) {
     </div>`
 
     i++
-    if (i == 150) {
+    if (i == 151) {
       return
     }
   }
 }
 
-$("#search").on("click",function(event){
-  event.preventDefault();
-  searchButton()
-})
-
 function searchButton() {  
-  searchValue = document.getElementById('searchInput').value
-  console.log(searchValue)
+  searchValue = document.getElementById('searchInput').value  
   request(2)
 }
 

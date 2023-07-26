@@ -15,10 +15,11 @@
         <div class="container-fluid">
             <img src="https://icons-for-free.com/iconfiles/png/48/go+play+pokedex+pokemon+tool+icon-1320186974488705447.png"
                 alt="Logo" width="48" height="48" class="d-inline-block align-text-top" onclick="request(0)">
+            <img src="https://archives.bulbagarden.net/media/upload/4/4b/Pok%C3%A9dex_logo.png" alt="Logo2" class="d-inline-block align-text-top" height="48px">
             <div style="width: 20%;" class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Escribe el nombre del Pokemon!"
                     aria-label="Search" id="searchInput">
-                <button class="btn btn-outline-light" type="submit" id="search" >Buscar</button>
+                <button class="btn btn-outline-light" type="submit" id="search" onclick="searchButton()">Buscar</button>
             </div>
         </div>
     </nav>
@@ -29,7 +30,7 @@
     </div> -->
 
     <!--Contenedor de tarjetas-->
-    <div style="padding: 10px;">
+    <div style="padding: 10px;" class="bg-primary-subtle bs-info-border-subtle">
         <div class="row row-cols-1 row-cols-md-6 g-4" id="cards">
             <!-- Tarjeta Muestra --><!--
             <div class="col">
