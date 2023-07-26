@@ -137,8 +137,9 @@ function createCards(pokemons) {
   }
 }
 
-function searchButton() {  
-  searchValue = document.getElementById('searchInput').value  
+function searchButton() {    
+  searchValue = document.getElementById('searchInput').value
+  document.getElementById('searchInput').value = '' 
   request(2)
 }
 
