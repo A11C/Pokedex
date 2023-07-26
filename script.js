@@ -27,6 +27,8 @@
   }*/
 request(0)
 var idR = 0
+var searchValue = ''
+
 function request(action) {
   fetch("./info.json").then((value) => {
     return value.json()
@@ -37,6 +39,9 @@ function request(action) {
         break
       case 1:
         requestFill(valueJSON)
+        break
+      case 2:
+        search(valueJSON)
         break
     }
   })
@@ -112,7 +117,7 @@ function createCards(pokemons) {
       <div class="card h-100">
         <div class="card-header" id="pokemonNumberName">${pokemon.number} ${pokemon.name}</div>
           <img src="${pokemon.ThumbnailImage}"
-            class="card-img-top img-fluid img-thumbnail" alt="${pokemon.ThumbnailAltText}" id="pokemonThumbnail">
+            class="card-img-top img-fluid img-thumbnail" alt="${pokemon.ThumbnailAltText}" id="pokemonThumbnail" onclick="searchButton()">
         <div class="card-body">
           <h5 class="card-title">Pokemon Type</h5>
           <p class="card-text" id="pokemonTypes">${types}</p>
@@ -156,7 +161,19 @@ function requestFill(pokemons) {
   }
 }
 
+function searchButton(){
+  searchValue = document.getElementById('searchInput').value
+  console.log(searchValue)
+  request(2)
+}
 
+function search(pokemons){
+  for(let pokemon of pokemons){
+    if(pokemon.name.includes(searchValue)){
+      console.log(pokemon.name)
+    }
+  }
+}
 /*
       
       <div class="modal fade" id="exampleModal${pokemon.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
