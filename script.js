@@ -143,12 +143,18 @@ function searchButton() {
   request(2)
 }
 
-var elInput = document.getElementById('searchInput');
-elInput.addEventListener('keyup', function(e) {  
+var searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('keyup', function(e) {  
   if (e.key === 'Enter') {
     searchButton()
   }
 })
+
+document.addEventListener("keyup", function(event) {
+  if (event.key === 'Escape') {
+      request(0)
+  }
+});
 
 function search(pokemons) {
   document.getElementById("cards").innerHTML = "";
