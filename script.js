@@ -67,7 +67,7 @@ class Pokemon{
     }
 }*/
 
-function abilitiesUpper(pokemon){  
+function abilitiesUpper(pokemon) {
   let abilities = ""
   let i = 0
   for (let abilitie of pokemon.abilities) {
@@ -80,44 +80,44 @@ function abilitiesUpper(pokemon){
   return abilities
 }
 
-function typesUpper(pokemon){
+function typesUpper(pokemon) {
   let types = ""
-    let i = 0
-    for (let type of pokemon.type) {
-      types += type[0].toUpperCase() + type.substring(1)
-      if (pokemon.type.length - 1 != i) {
-        types += ", "
-      }
-      i++
+  let i = 0
+  for (let type of pokemon.type) {
+    types += type[0].toUpperCase() + type.substring(1)
+    if (pokemon.type.length - 1 != i) {
+      types += ", "
     }
+    i++
+  }
   return types
 }
 
-function weaknessUpper(pokemon){
+function weaknessUpper(pokemon) {
   let weakness = ""
-    let i = 0
-    for (let weaknes of pokemon.weakness) {
-      weakness += weaknes[0].toUpperCase() + weaknes.substring(1)
-      if (pokemon.weakness.length - 1 != i) {
-        weakness += ", "
-      }
-      i++
+  let i = 0
+  for (let weaknes of pokemon.weakness) {
+    weakness += weaknes[0].toUpperCase() + weaknes.substring(1)
+    if (pokemon.weakness.length - 1 != i) {
+      weakness += ", "
     }
+    i++
+  }
   return weakness
 }
 
 function createCards(pokemons) {
   let i = 0
-  //document.getElementById("card").innerHTML = "";
+  document.getElementById("cards").innerHTML = "";
   for (let pokemon of pokemons) {
     let abilities = abilitiesUpper(pokemon)
-    let types = typesUpper(pokemon)    
+    let types = typesUpper(pokemon)
     document.getElementById("cards").innerHTML += `
     <div class="col">
       <div class="card h-100">
         <div class="card-header" id="pokemonNumberName">${pokemon.number} ${pokemon.name}</div>
           <img src="${pokemon.ThumbnailImage}"
-            class="card-img-top img-fluid img-thumbnail" alt="${pokemon.ThumbnailAltText}" id="pokemonThumbnail" onclick="searchButton()">
+            class="card-img-top img-fluid img-thumbnail" alt="${pokemon.ThumbnailAltText}" id="pokemonThumbnail">
         <div class="card-body">
           <h5 class="card-title">Pokemon Type</h5>
           <p class="card-text" id="pokemonTypes">${types}</p>
@@ -131,8 +131,46 @@ function createCards(pokemons) {
     </div>`
 
     i++
-    if (i == 100) {
+    if (i == 150) {
       return
+    }
+  }
+}
+
+$("#search").on("click",function(event){
+  event.preventDefault();
+  searchButton()
+})
+
+function searchButton() {  
+  searchValue = document.getElementById('searchInput').value
+  console.log(searchValue)
+  request(2)
+}
+
+function search(pokemons) {
+  document.getElementById("cards").innerHTML = "";
+  for (let pokemon of pokemons) {
+    if (pokemon.name.includes(searchValue) || pokemon.number.includes(searchValue)) {
+      let abilities = abilitiesUpper(pokemon)
+      let types = typesUpper(pokemon)
+      document.getElementById("cards").innerHTML += `
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-header" id="pokemonNumberName">${pokemon.number} ${pokemon.name}</div>
+          <img src="${pokemon.ThumbnailImage}"
+            class="card-img-top img-fluid img-thumbnail" alt="${pokemon.ThumbnailAltText}" id="pokemonThumbnail">
+        <div class="card-body">
+          <h5 class="card-title">Pokemon Type</h5>
+          <p class="card-text" id="pokemonTypes">${types}</p>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#modalInfo" id="about" onclick="modalFill(${pokemon.id})">About</button>
+        </div>
+        <div class="card-footer">
+              <small class="text-body-secondary" id="pokemonAbilities">Abilities: ${abilities}</small>
+        </div>
+      </div>
+    </div>`
     }
   }
 }
@@ -153,7 +191,7 @@ function requestFill(pokemons) {
       document.getElementById('modalType').innerHTML = `&nbsp &nbsp &nbsp ${types}`
       let abilities = abilitiesUpper(pokemon)
       document.getElementById('modalAbilities').innerHTML = `&nbsp &nbsp &nbsp${abilities}`
-      let weakness = weaknessUpper(pokemon)      
+      let weakness = weaknessUpper(pokemon)
       document.getElementById('modalWeakness').innerHTML = `&nbsp &nbsp${weakness}`
       document.getElementById('modalHeight').innerHTML = `${pokemon.height}`
       document.getElementById('modalWeight').innerHTML = `${pokemon.weight}`
@@ -161,19 +199,6 @@ function requestFill(pokemons) {
   }
 }
 
-function searchButton(){
-  searchValue = document.getElementById('searchInput').value
-  console.log(searchValue)
-  request(2)
-}
-
-function search(pokemons){
-  for(let pokemon of pokemons){
-    if(pokemon.name.includes(searchValue)){
-      console.log(pokemon.name)
-    }
-  }
-}
 /*
       
       <div class="modal fade" id="exampleModal${pokemon.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
