@@ -44,6 +44,8 @@ function request(action) {
         search(valueJSON)
         break
     }
+  }).catch((error)=>{
+    alert(`${error}`)
   })
 }
 
@@ -115,7 +117,7 @@ function createCards(pokemons) {
     document.getElementById("cards").innerHTML += `
     <div class="col">
       <div class="card h-100">
-        <div class="card-header" id="pokemonNumberName">${pokemon.number} ${pokemon.name}</div>
+        <div class="card-header" id="pokemonNumberName">Nº ${pokemon.number} ${pokemon.name}</div>
           <img src="${pokemon.ThumbnailImage}"
             class="card-img-top img-fluid img-thumbnail" alt="${pokemon.ThumbnailAltText}" id="pokemonThumbnail">
         <div class="card-body">
@@ -165,7 +167,7 @@ function search(pokemons) {
       document.getElementById("cards").innerHTML += `
     <div class="col">
       <div class="card h-100">
-        <div class="card-header" id="pokemonNumberName">${pokemon.number} ${pokemon.name}</div>
+        <div class="card-header" id="pokemonNumberName">Nº ${pokemon.number} ${pokemon.name}</div>
           <img src="${pokemon.ThumbnailImage}"
             class="card-img-top img-fluid img-thumbnail" alt="${pokemon.ThumbnailAltText}" id="pokemonThumbnail">
         <div class="card-body">
@@ -191,7 +193,7 @@ function modalFill(id) {
 function requestFill(pokemons) {
   for (let pokemon of pokemons) {
     if (pokemon.id == idR) {
-      document.getElementById('modalNumberName').innerHTML = `${pokemon.number}<span class="strong"> ${pokemon.name} </span> `
+      document.getElementById('modalNumberName').innerHTML = `Nº ${pokemon.number}<span class="strong"> ${pokemon.name} </span> `
       let imgThumb = document.getElementById('modalThumbnail')
       imgThumb.setAttribute('src', pokemon.ThumbnailImage)
       imgThumb.setAttribute('alt', pokemon.ThumbnailAltText)
@@ -203,6 +205,8 @@ function requestFill(pokemons) {
       document.getElementById('modalWeakness').innerHTML = `&nbsp &nbsp${weakness}`
       document.getElementById('modalHeight').innerHTML = `${pokemon.height}`
       document.getElementById('modalWeight').innerHTML = `${pokemon.weight}`
+      let url = document.getElementById('url')
+      url.setAttribute('href', `https://www.pokemon.com${pokemon.detailPageURL}`)
     }
   }
 }
