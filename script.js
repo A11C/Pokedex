@@ -131,7 +131,7 @@ function createCards(pokemons) {
     </div>`
 
     i++
-    if (i == 151) {
+    if (i == 152) {
       return
     }
   }
