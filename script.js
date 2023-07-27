@@ -126,13 +126,12 @@ function createCards(pokemons) {
           <img src="${pokemon.ThumbnailImage}"
             class="card-img-top img-fluid img-thumbnail" alt="${pokemon.ThumbnailAltText}" id="pokemonThumbnail">
         <div class="card-body">
-          <h5 class="card-title">Pokemon Type</h5>
-          <p class="card-text" id="pokemonTypes">${types}</p>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#modalInfo" id="about" onclick="modalFill(${pokemon.id})">About</button>
+          <h5 class="card-title">Type: <small class="text-body-secondary" id="pokemonTypes">${types}</small></h5>
+          <h5 class="card-title">Abilities: <small class="text-body-secondary" id="pokemonAbilities">${abilities}</small></h5>          
         </div>
         <div class="card-footer">
-              <small class="text-body-secondary" id="pokemonAbilities">Abilities: ${abilities}</small>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#modalInfo" id="about" onclick="modalFill(${pokemon.id})">About</button>              
         </div>
       </div>
     </div>`
@@ -179,13 +178,12 @@ function search(pokemons) {
           <img src="${pokemon.ThumbnailImage}"
             class="card-img-top img-fluid img-thumbnail" alt="${pokemon.ThumbnailAltText}" id="pokemonThumbnail">
         <div class="card-body">
-          <h5 class="card-title">Pokemon Type</h5>
-          <p class="card-text" id="pokemonTypes">${types}</p>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#modalInfo" id="about" onclick="modalFill(${pokemon.id})">About</button>
+          <h5 class="card-title">Type: <small class="text-body-secondary" id="pokemonTypes">${types}</small></h5>
+          <h5 class="card-title">Abilities: <small class="text-body-secondary" id="pokemonAbilities">${abilities}</small></h5>          
         </div>
         <div class="card-footer">
-              <small class="text-body-secondary" id="pokemonAbilities">Abilities: ${abilities}</small>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#modalInfo" id="about" onclick="modalFill(${pokemon.id})">About</button>
         </div>
       </div>
     </div>`
