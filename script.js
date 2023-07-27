@@ -25,10 +25,13 @@
       "poison"
     ]
   }*/
+
+/*Iniciador de la página con la información*/
 request(0)
 var idR = 0
 var searchValue = ''
 
+/*Función de solicitud al json*/
 function request(action) {
   fetch("./info.json").then((value) => {
     return value.json()
@@ -49,7 +52,7 @@ function request(action) {
   })
 }
 
-/*
+
 class Pokemon{
     constructor(abilities, detailPageURL, weight, weakness, number, height, collectibles_slug, featured, slug, name, ThumbnailAltText, ThumbnailImage, id, type){
         this.abilities = abilities
@@ -67,7 +70,9 @@ class Pokemon{
         this.id = id
         this.type = type
     }
-}*/
+}
+
+/* Bloque de funciones para capitalizar las habilidades, tipos y debilidades */
 
 function abilitiesUpper(pokemon) {
   let abilities = ""
@@ -108,6 +113,8 @@ function weaknessUpper(pokemon) {
   return weakness
 }
 
+/* Función para la creación de cada tarjeta de los pokemones contenidos en el json  */
+
 function createCards(pokemons) {
   let i = 0
   document.getElementById("cards").innerHTML = "";
@@ -139,12 +146,13 @@ function createCards(pokemons) {
   }
 }
 
+/*Función que se lanza al darle clik al botón de buscar */
 function searchButton() {    
   searchValue = document.getElementById('searchInput').value
   document.getElementById('searchInput').value = '' 
   request(2)
 }
-
+/*Función que detecta si dentro del contenedor del input se presiona Enter */
 var searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('keyup', function(e) {  
   if (e.key === 'Enter') {
@@ -152,12 +160,14 @@ searchInput.addEventListener('keyup', function(e) {
   }
 })
 
+/*Función para "recargar" la página al presionar ESC */
 document.addEventListener("keyup", function(event) {
   if (event.key === 'Escape') {
       request(0)
   }
 });
 
+/* Función para generar las tarjetas de los pokemones encontrados */
 function search(pokemons) {
   document.getElementById("cards").innerHTML = "";
   for (let pokemon of pokemons) {
@@ -185,11 +195,13 @@ function search(pokemons) {
   }
 }
 
+/* Función que se lanza al darle al botón About generar */
 function modalFill(id) {
   idR = id
   request(1)
 }
 
+/* Función para el rellenado del modal */
 function requestFill(pokemons) {
   for (let pokemon of pokemons) {
     if (pokemon.id == idR) {
@@ -210,24 +222,3 @@ function requestFill(pokemons) {
     }
   }
 }
-
-/*
-      
-      <div class="modal fade" id="exampleModal${pokemon.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <p>Pokemon name : ${pokemon.name}</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-*/
