@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/style.css">
     </head>
 
+<<<<<<< HEAD
 <body>
 
     <nav class="navbar bg-primary" data-bs-theme="dark">
@@ -23,12 +24,32 @@
     </nav>
 
     <!-- div para mostrar los pokemones -->
+=======
+<body class="bg-primary-subtle">
+
+    <nav class="navbar sticky-top bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <img src="https://icons-for-free.com/iconfiles/png/48/go+play+pokedex+pokemon+tool+icon-1320186974488705447.png"
+                alt="Logo" width="48" height="48" class="d-inline-block align-text-top" onclick="request(0)">
+            <img src="https://archives.bulbagarden.net/media/upload/4/4b/Pok%C3%A9dex_logo.png" alt="Logo2" class="d-inline-block align-text-top" height="48px">
+            <div style="width: 20%;" class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Escribe el nombre del Pokemon!"
+                    aria-label="Search" id="searchInput">
+                <button class="btn btn-outline-light" type="submit" id="search" onclick="searchButton()">Buscar</button>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- div para mostrar los pokemones
+>>>>>>> 8b4ef0cf37bcd38a92218d4cb0a386d0f5c0dff0
     <div class="row mt-6" id="card">
-    </div>
-    <!-- Tarjeta Muestra --> <!--
-        
+    </div> -->
+
+    <!--Contenedor de tarjetas-->
     <div style="padding: 10px;">
-        <div class="row row-cols-1 row-cols-md-6 g-4">
+        <div class="row row-cols-1 row-cols-md-6 g-4" id="cards">
+            <!-- Tarjeta Muestra --><!--
             <div class="col">
                 <div class="card h-100">
                     <div class="card-header" id="pokemonNumberName">001 Bulbasaur</div>
@@ -44,41 +65,36 @@
                         <small class="text-body-secondary" id="pokemonAbilities">Abilities: Overgrow</small>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
-    -->
 
-
-    <div class="modal fade " tabindex="-1" id="modalInfo"
-        data-bs-backdrop="static">
+    <div class="modal fade " tabindex="-1" id="modalInfo" data-bs-backdrop="static">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title text-success" id="modalNumberName">002 <span class="strong"> Ivysaur</span> </h3>
+                    <h3 class="modal-title text-success" id="modalNumberName"></h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/002.png" alt="Ivysaur"
-                        id="modalThumnail">
-                    <p class="text-warning h6"><strong>Type:</strong><small class="text-body-secondary" id="modalType">
-                            Grass, Poison</small></p>
+                    <img src="" alt=""
+                        id="modalThumbnail">
+                    <p class="text-warning h6"><strong>Type:</strong><small class="text-body-secondary" id="modalType"></small></p>
                     <p class="text-info h6"><strong>Abilities:</strong><small class="text-body-secondary"
-                            id="modalAbilities"> Overgrow</small></p>
+                            id="modalAbilities"></small></p>
                     <p class="text-danger h6"><strong>Weakness:</strong><small class="text-body-secondary"
-                            id="modalWeakness"> Fire, Psychic, Flying, Ice</small></p>
+                            id="modalWeakness"></small></p>
                     <div class="container text-center">
                         <div class="row">
                             <div class="col">
                                 <p style="color: #6f42c1" class="h6"><strong>Height:</strong>
-                                    <small class="text-body-secondary" id="modalHeight">
-                                        28.7</small>
+                                    <small class="text-body-secondary" id="modalHeight"></small>
                                 </p>
                             </div>
                             <div class="col">
                                 <p style="color: #6f42c1" class="h6">
                                     <strong>Weight:</strong>
-                                    <small class="text-body-secondary" id="modalWeight"> 39</small>
+                                    <small class="text-body-secondary" id="modalWeight"></small>
                                 </p>
 
                             </div>
