@@ -73,7 +73,6 @@ class Pokemon{
 }
 
 /* Bloque de funciones para capitalizar las habilidades, tipos y debilidades */
-
 function abilitiesUpper(pokemon) {
   let abilities = ""
   let i = 0
@@ -114,7 +113,6 @@ function weaknessUpper(pokemon) {
 }
 
 /* Función para la creación de cada tarjeta de los pokemones contenidos en el json  */
-
 function createCards(pokemons) {
   let i = 0
   document.getElementById("cards").innerHTML = "";
